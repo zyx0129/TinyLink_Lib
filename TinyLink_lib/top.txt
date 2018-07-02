@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>Workflow Manager</title>
+    <link rel="stylesheet" type="text/css" href="/TinyLink_lib/style.css" />
+  </head>
+  <body>
+    <div id="wrapper"><div id="bg"><div id="header"></div>
+      <div id="page"><div id="container"><div id="banner"></div>
+        <div id="nav1">
+          <ul style='float: left'>
+            <li><a href="#" shape="rect">Home</a></li>
+            <li><a href="/TinyLink_lib/uploadfile.php" shape="rect">软件库开发</a></li>
+	    <li><a href="/TinyLink_lib/wiki.php" shape="rect">模块功能说明</a></li>
+
+            <?php
+               if (isset($_SESSION["username"]) || isset($name)){
+                  if (isset($_SESSION["username"])){
+                     $usernameToDisplay =  $_SESSION["username"];
+                  } else {
+                     $usernameToDisplay = $name;
+                  }
+            ?>
+                 
+		  <li shape="rect" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usernameToDisplay;?><b class="caret"></b></a>
+                    <!--ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul-->
+                </li>
+                  <!--li><p style='color:white;'>&nbsp;&nbsp;&nbsp;Welcome, <?php echo $usernameToDisplay?>.</p></li-->
+              <?php } else { ?>
+                  <li><a href="/TinyLink_lib/registration.php" shape="rect">Register</a></li>
+                  <li><a href="/TinyLink_lib/login.php" shape="rect">Login</a></li>
+		<?php } ?>
+          </ul>
+        </div>
+        <div id="content">
+          <div id="center">
